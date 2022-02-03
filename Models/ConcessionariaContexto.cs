@@ -7,9 +7,10 @@ namespace ProjetoFinalVolvo
     public DbSet<Vendedor> Vendedores { get; set; } = null!;
     public DbSet<Proprietario> Proprietarios { get; set; } = null!;
 
-    //  protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    //     {
-    //         optionsBuilder.UseSqlServer(@"Server=.\;Database=Concessionaria;Trusted_Connection=True");
-    //     }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+		string abc = @".\;Database=Concessionaria;Trusted_Connection=True";
+		optionsBuilder.UseSqlServer(@"Server=" + abc);
+    }
   }
 }
