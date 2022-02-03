@@ -15,5 +15,6 @@ namespace ProjetoFinalVolvo
     [MaxLength(256)]
     public string email { get; set; }
 
+    public Veiculo? veiculo;
   }
 }

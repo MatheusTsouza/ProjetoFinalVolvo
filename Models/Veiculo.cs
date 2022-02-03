@@ -18,6 +18,9 @@ namespace ProjetoFinalVolvo
     public int proprietarioId { get; set; }
     public Proprietario? Proprietario { get; set; }
 
+    public int vendedorId { get; set; }
+    public Vendedor? Vendedor { get; set; }
+
 
   }
 }

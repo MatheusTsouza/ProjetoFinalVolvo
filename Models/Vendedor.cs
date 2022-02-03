@@ -5,5 +5,7 @@ namespace ProjetoFinalVolvo
   {
     public int vendedorId { get; set; }
     public string nome { get; set; }
+    public float salario { get; set; }
+    public Veiculo? veiculo;
   }
 }
