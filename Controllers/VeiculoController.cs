@@ -54,6 +54,29 @@ namespace ProjetoFinalVolvo.Controllers
 
       }
     }
+
+	// Listar veiculos por quilometragem
+	[HttpGet("quilometragem")]
+    public List<Veiculo> ListarQuilometragem()
+    {
+		using (var _context = new ConcessionariaContexto())
+		{
+			// List<Veiculo> veiculos = blabla;
+		}
+		return veiculos;
+    }
+
+	// Listar veiculos pela versao
+	[HttpGet("versao")]
+    public List<Veiculo> ListarVersao()
+    {
+		using (var _context = new ConcessionariaContexto())
+		{
+			// List<Veiculo> veiculos = blabla;
+		}
+		return veiculos;
+    }
+
   }
 }
 

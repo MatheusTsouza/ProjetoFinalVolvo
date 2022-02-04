@@ -1,0 +1,7 @@
+C:\Users\nineb\Documents\Volvo\ProjetoFinalVolvo\obj\Debug\net6.0\ProjetoFinalVolvo.csproj.AssemblyReference.cache
+C:\Users\nineb\Documents\Volvo\ProjetoFinalVolvo\obj\Debug\net6.0\ProjetoFinalVolvo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nineb\Documents\Volvo\ProjetoFinalVolvo\obj\Debug\net6.0\ProjetoFinalVolvo.AssemblyInfoInputs.cache
+C:\Users\nineb\Documents\Volvo\ProjetoFinalVolvo\obj\Debug\net6.0\ProjetoFinalVolvo.AssemblyInfo.cs
+C:\Users\nineb\Documents\Volvo\ProjetoFinalVolvo\obj\Debug\net6.0\ProjetoFinalVolvo.csproj.CoreCompileInputs.cache
+C:\Users\nineb\Documents\Volvo\ProjetoFinalVolvo\obj\Debug\net6.0\ProjetoFinalVolvo.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\nineb\Documents\Volvo\ProjetoFinalVolvo\obj\Debug\net6.0\ProjetoFinalVolvo.MvcApplicationPartsAssemblyInfo.cache
