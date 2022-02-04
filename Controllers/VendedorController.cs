@@ -74,11 +74,11 @@ namespace ProjetoFinalVolvo.Controllers
 
     // Calcular salario
     [HttpGet("salario/{id}")]
-    public float CalcularSalario(int id)
+    public double CalcularSalario(int id)
     {
-      float salarioBase = 0;
-      float totalComissoes = 0;
-      float comissao = 0.01;
+      double salarioBase = 0;
+      double totalComissoes = 0;
+      double comissao = 0.01;
       using (var _context = new ConcessionariaContexto())
       {
         salarioBase = _context.Vendedores.Where(x => x.vendedorId == id).First<Vendedor>().salario;

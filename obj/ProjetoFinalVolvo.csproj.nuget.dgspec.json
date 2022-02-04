@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nineb\\Documents\\Volvo\\ProjetoFinalVolvo\\ProjetoFinalVolvo.csproj": {}
+    "E:\\workspace_volvo\\ProjetoFinalVolvo\\ProjetoFinalVolvo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nineb\\Documents\\Volvo\\ProjetoFinalVolvo\\ProjetoFinalVolvo.csproj": {
+    "E:\\workspace_volvo\\ProjetoFinalVolvo\\ProjetoFinalVolvo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nineb\\Documents\\Volvo\\ProjetoFinalVolvo\\ProjetoFinalVolvo.csproj",
+        "projectUniqueName": "E:\\workspace_volvo\\ProjetoFinalVolvo\\ProjetoFinalVolvo.csproj",
         "projectName": "ProjetoFinalVolvo",
-        "projectPath": "C:\\Users\\nineb\\Documents\\Volvo\\ProjetoFinalVolvo\\ProjetoFinalVolvo.csproj",
-        "packagesPath": "C:\\Users\\nineb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nineb\\Documents\\Volvo\\ProjetoFinalVolvo\\obj\\",
+        "projectPath": "E:\\workspace_volvo\\ProjetoFinalVolvo\\ProjetoFinalVolvo.csproj",
+        "packagesPath": "C:\\Users\\Matheus\\.nuget\\packages\\",
+        "outputPath": "E:\\workspace_volvo\\ProjetoFinalVolvo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\nineb\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Matheus\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
