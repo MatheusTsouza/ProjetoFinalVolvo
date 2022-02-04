@@ -71,6 +71,21 @@ namespace ProjetoFinalVolvo.Controllers
         _context.SaveChanges();
       }
     }
+
+	// Calcular salario
+	[HttpGet("salario")]
+	public float CalcularSalario()
+	{
+		float salarioBase;
+		float comissoes = 0;
+		using (var _context = new ConcessionariaContexto())
+		{
+			// salarioBase = blabla
+			// comissoes += comissao
+		}
+		return salarioBase + comissoes;
+	}
+
   }
 }
 
