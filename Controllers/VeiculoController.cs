@@ -72,31 +72,31 @@ namespace ProjetoFinalVolvo.Controllers
       }
     }
 
-	// Listar veiculos por quilometragem
-	[HttpGet("quilometragem")]
+    // Listar veiculos por quilometragem
+    [HttpGet("quilometragem")]
     public List<Veiculo> ListarQuilometragem()
     {
-		using (var _context = new ConcessionariaContexto())
-		{
-			// List<Veiculo> veiculos = blabla;
-			var veiculos = _context.Veiculos
-				.OrderBy(x => x.quilometragem)
-				.ToList();
-			return veiculos;
-		}
+      using (var _context = new ConcessionariaContexto())
+      {
+        // List<Veiculo> veiculos = blabla;
+        var veiculos = _context.Veiculos
+          .OrderBy(x => x.quilometragem)
+          .ToList();
+        return veiculos;
+      }
     }
 
-	// Listar veiculos pela versao
-	[HttpGet("versao")]
+    // Listar veiculos pela versao
+    [HttpGet("versao")]
     public List<Veiculo> ListarVersao()
     {
-		using (var _context = new ConcessionariaContexto())
-		{
-			var veiculos = _context.Veiculos
-				.OrderBy(x => x.versao)
-				.ToList();
-			return veiculos;
-		}
+      using (var _context = new ConcessionariaContexto())
+      {
+        var veiculos = _context.Veiculos
+          .OrderBy(x => x.versaoSistema)
+          .ToList();
+        return veiculos;
+      }
     }
 
   }
