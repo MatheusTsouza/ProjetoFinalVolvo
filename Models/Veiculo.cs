@@ -4,7 +4,9 @@ namespace ProjetoFinalVolvo
   public class Veiculo
   {
     [Key]
-    public string numeroChassi { get; set; } = null!;
+    public int veiculoId { get; set; }
+    [MaxLength(17)]
+    public string numeroChassi { get; set; }
     [MaxLength(45)]
     public string modelo { get; set; }
     public short ano { get; set; }
