@@ -33,7 +33,13 @@ namespace ProjetoFinalVolvo.Controllers
     {
       using (var _context = new ConcessionariaContexto())
       {
+        var proprietario = _context.Proprietarios.FirstOrDefault(s => s.proprietarioId == id);
 
+        if (proprietario == null)
+        {
+          return NotFound();
+        }
+        return Ok(proprietario);
       }
     }
 
@@ -42,7 +48,13 @@ namespace ProjetoFinalVolvo.Controllers
     {
       using (var _context = new ConcessionariaContexto())
       {
-
+        var entity = _context.Proprietarios.Find(id);
+        if (entity == null)
+        {
+          return;
+        }
+        _context.Entry(entity).CurrentValues.SetValues(proprietario);
+        _context.SaveChanges();
       }
     }
 
@@ -51,7 +63,13 @@ namespace ProjetoFinalVolvo.Controllers
     {
       using (var _context = new ConcessionariaContexto())
       {
-
+        var entity = _context.Proprietarios.Find(id);
+        if (entity == null)
+        {
+          return;
+        }
+        _context.Proprietarios.Remove(entity);
+        _context.SaveChanges();
       }
     }
   }
