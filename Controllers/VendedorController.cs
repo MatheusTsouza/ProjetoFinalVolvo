@@ -56,19 +56,22 @@ namespace ProjetoFinalVolvo.Controllers
     }
 
 	// Calcular salario
-	[HttpGet("salario")]
-	public float CalcularSalario()
+	[HttpGet("salario/{id}")]
+	public float CalcularSalario(int id)
 	{
-		float salarioBase;
-		float comissoes = 0;
+		float salarioBase = 0
+		float totalComissoes = 0;
+		float comissao = 0.01;
 		using (var _context = new ConcessionariaContexto())
 		{
-			// salarioBase = blabla
-			// comissoes += comissao
+			salarioBase = _context.Vendedores.Where(x=> x.vendedorId == id).salario;
+			var veiculosVendidos = _context.Veiculos.Where(x=> x.vendedorId == id).ToList();
+			foreach (var veiculo in veiculosVendidos) {
+				totalComissoes += veiculo.valor*comissao;
+			}
+			return salarioBase + totalComissoes;
 		}
-		return salarioBase + comissoes;
 	}
-
   }
 }
 

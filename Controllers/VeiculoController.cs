@@ -62,8 +62,11 @@ namespace ProjetoFinalVolvo.Controllers
 		using (var _context = new ConcessionariaContexto())
 		{
 			// List<Veiculo> veiculos = blabla;
+			var veiculos = _context.Veiculos
+				.OrderBy(x => x.quilometragem)
+				.ToList();
+			return veiculos;
 		}
-		return veiculos;
     }
 
 	// Listar veiculos pela versao
@@ -72,9 +75,11 @@ namespace ProjetoFinalVolvo.Controllers
     {
 		using (var _context = new ConcessionariaContexto())
 		{
-			// List<Veiculo> veiculos = blabla;
+			var veiculos = _context.Veiculos
+				.OrderBy(x => x.versao)
+				.ToList();
+			return veiculos;
 		}
-		return veiculos;
     }
 
   }
