@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ProjetoFinalVolvo;
+using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace ProjetoFinalVolvo.Controllers
 {
@@ -14,6 +16,15 @@ namespace ProjetoFinalVolvo.Controllers
       {
         try
         {
+          if (new EmailAddressAttribute().IsValid(proprietario.email) == false)
+          {
+            throw new ConcessionariaException("Email com o formato inválido");
+          }
+
+          if (proprietario.enderecoNumero > 9999)
+          {
+            throw new ConcessionariaException("Numero da casa não pode ser superior a 9999");
+          }
 
           if (proprietario.cpfCnpj.Length != 14 && proprietario.cpfCnpj.Length != 11)
           {
