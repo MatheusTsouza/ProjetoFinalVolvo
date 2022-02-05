@@ -8,14 +8,29 @@ namespace ProjetoFinalVolvo.Controllers
   public class VendedorController : Controller
   {
     [HttpPost]
-    public Vendedor? Post([FromBody] Vendedor vendedor)
+    public IActionResult Post([FromBody] Vendedor vendedor)
     {
       using (var _context = new ConcessionariaContexto())
       {
-        _context.Vendedores.Add(vendedor);
-        _context.SaveChanges();
+        try
+        {
+          if (vendedor.salario < 1212.00)
+          {
+            throw new ConcessionariaException("O salário deve ser igual ou maior que o salario mínimo");
+          }
+          _context.Vendedores.Add(vendedor);
+          _context.SaveChanges();
 
-        return vendedor;
+          return Ok(vendedor);
+        }
+        catch (ConcessionariaException e)
+        {
+          return Problem(e.Message, null, 400, "Erro");
+        }
+        catch (Exception e)
+        {
+          return Problem(e.Message, null, 400, "Erro");
+        }
       }
     }
 
@@ -33,42 +48,78 @@ namespace ProjetoFinalVolvo.Controllers
     {
       using (var _context = new ConcessionariaContexto())
       {
-        var vendedor = _context.Vendedores.FirstOrDefault(s => s.vendedorId == id);
-        if (vendedor == null)
+        try
         {
-          return NotFound();
+          var vendedor = _context.Vendedores.FirstOrDefault(s => s.vendedorId == id);
+          if (vendedor == null)
+          {
+            throw new NullReferenceException("Vendedor não encontrado");
+          }
+          return Ok(vendedor);
         }
-        return Ok(vendedor);
+        catch (NullReferenceException e)
+        {
+          return Problem(e.Message, null, 404, "Erro");
+        }
+        catch (Exception e)
+        {
+          return Problem(e.Message, null, 500, "Erro");
+        }
       }
     }
 
     [HttpPut("{id}")]
-    public void Put(int id, [FromBody] Vendedor vendedor)
+    public IActionResult Put(int id, [FromBody] Vendedor vendedor)
     {
       using (var _context = new ConcessionariaContexto())
       {
-        var entity = _context.Vendedores.Find(id);
-        if (entity == null)
+        try
         {
-          return;
+          var entity = _context.Vendedores.Find(id);
+          if (entity == null)
+          {
+            throw new NullReferenceException("Vendedor não encontrado");
+          }
+          _context.Entry(entity).CurrentValues.SetValues(vendedor);
+          _context.SaveChanges();
+          return Ok();
         }
-        _context.Entry(entity).CurrentValues.SetValues(vendedor);
-        _context.SaveChanges();
+        catch (NullReferenceException e)
+        {
+          return Problem(e.Message, null, 404, "Erro");
+        }
+        catch (Exception e)
+        {
+          return Problem(e.Message, null, 500, "Erro");
+        }
       }
     }
 
     [HttpDelete("{id}")]
-    public void Delete(int id)
+    public IActionResult Delete(int id)
     {
       using (var _context = new ConcessionariaContexto())
       {
-        var entity = _context.Vendedores.Find(id);
-        if (entity == null)
+        try
         {
-          return;
+          var entity = _context.Vendedores.Find(id);
+          if (entity == null)
+          {
+            throw new NullReferenceException("Vendedor não encontrado");
+          }
+          _context.Vendedores.Remove(entity);
+          _context.SaveChanges();
+          return Ok();
         }
-        _context.Vendedores.Remove(entity);
-        _context.SaveChanges();
+        catch (NullReferenceException e)
+        {
+          return Problem(e.Message, null, 404, "Erro");
+
+        }
+        catch (Exception e)
+        {
+          return Problem(e.Message, null, 500, "Erro");
+        }
       }
     }
 
