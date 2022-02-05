@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\workspace_volvo\\ProjetoFinalVolvo\\ProjetoFinalVolvo.csproj": {}
+    "E:\\workspace_volvo\\projeto\\ProjetoFinalVolvo\\ProjetoFinalVolvo.csproj": {}
   },
   "projects": {
-    "E:\\workspace_volvo\\ProjetoFinalVolvo\\ProjetoFinalVolvo.csproj": {
+    "E:\\workspace_volvo\\projeto\\ProjetoFinalVolvo\\ProjetoFinalVolvo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\workspace_volvo\\ProjetoFinalVolvo\\ProjetoFinalVolvo.csproj",
+        "projectUniqueName": "E:\\workspace_volvo\\projeto\\ProjetoFinalVolvo\\ProjetoFinalVolvo.csproj",
         "projectName": "ProjetoFinalVolvo",
-        "projectPath": "E:\\workspace_volvo\\ProjetoFinalVolvo\\ProjetoFinalVolvo.csproj",
+        "projectPath": "E:\\workspace_volvo\\projeto\\ProjetoFinalVolvo\\ProjetoFinalVolvo.csproj",
         "packagesPath": "C:\\Users\\Matheus\\.nuget\\packages\\",
-        "outputPath": "E:\\workspace_volvo\\ProjetoFinalVolvo\\obj\\",
+        "outputPath": "E:\\workspace_volvo\\projeto\\ProjetoFinalVolvo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Matheus\\AppData\\Roaming\\NuGet\\NuGet.Config"
