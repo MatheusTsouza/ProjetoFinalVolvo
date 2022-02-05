@@ -10,8 +10,12 @@ namespace ProjetoFinalVolvo
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-      string abc = System.IO.File.ReadAllText("Models/app.config");
-      optionsBuilder.UseSqlServer(abc);
+
+
+      string arquivoConfiguracao = System.IO.File.ReadAllText("Models/app.config");
+      optionsBuilder.UseSqlServer(arquivoConfiguracao);
+
+
     }
   }
 }
