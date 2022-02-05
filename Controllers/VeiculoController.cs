@@ -20,8 +20,10 @@ namespace ProjetoFinalVolvo.Controllers
                 return Ok(veiculo);
             }
         } catch (Microsoft.EntityFrameworkCore.DbUpdateException e) {
+            Utils.addLog(e.Message);
             return Problem(e.Message, null, 400, "Erro");
         } catch (Exception e) {
+            Utils.addLog(e.Message);
             return Problem(e.Message, null, 500, "Erro");
         }
 
@@ -51,10 +53,12 @@ namespace ProjetoFinalVolvo.Controllers
             } 
             catch (ConcessionariaException e)
             {
+                Utils.addLog(e.Message);
                 return Problem(e.Message, null, 400, "Erro");
             }
             catch (Exception e)
             {
+                Utils.addLog(e.Message);
                 return Problem(e.Message, null, 500, "Erro");
             }
         }
@@ -77,10 +81,12 @@ namespace ProjetoFinalVolvo.Controllers
             }
             catch (NullReferenceException e)
             {
+                Utils.addLog(e.Message);
                 return Problem(e.Message, null, 404, "Erro");
             }
             catch (Exception e)
             {
+                Utils.addLog(e.Message);
                 return Problem(e.Message, null, 500, "Erro");
             }
         }
@@ -103,11 +109,13 @@ namespace ProjetoFinalVolvo.Controllers
             }
             catch (NullReferenceException e)
             {
+                Utils.addLog(e.Message);
                 return Problem(e.Message, null, 404, "Erro");
                 
             }
             catch (Exception e)
             {
+                Utils.addLog(e.Message);
                 return Problem(e.Message, null, 500, "Erro");
             }
         }
@@ -129,6 +137,7 @@ namespace ProjetoFinalVolvo.Controllers
         }
         catch (Exception e) 
         {
+            Utils.addLog(e.Message);
             return Problem(e.Message, null, 500, "Erro");
         }
     }
@@ -146,6 +155,7 @@ namespace ProjetoFinalVolvo.Controllers
                 return Ok(veiculos);
             }
         } catch (Exception e) {
+            Utils.addLog(e.Message);
             return Problem(e.Message, null, 500, "Erro");
         }
     }
