@@ -26,7 +26,7 @@ namespace ProjetoFinalVolvo.Controllers
         }
         catch (ConcessionariaException e)
         {
-          return Problem(e.Message, null, 500, "Erro");
+          return Problem(e.Message, null, 400, "Erro");
         }
         catch (Exception e)
         {
@@ -117,7 +117,7 @@ namespace ProjetoFinalVolvo.Controllers
         catch (NullReferenceException e)
         {
           return Problem(e.Message, null, 404, "Erro");
-          
+
         }
         catch (Exception e)
         {
