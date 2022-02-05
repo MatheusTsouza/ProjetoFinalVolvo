@@ -8,15 +8,23 @@ namespace ProjetoFinalVolvo.Controllers
   public class VeiculoController : Controller
   {
     [HttpPost]
-    public Veiculo? Post([FromBody] Veiculo veiculo)
+    public IActionResult Post([FromBody] Veiculo veiculo)
     {
-      using (var _context = new ConcessionariaContexto())
-      {
-        _context.Veiculos.Add(veiculo);
-        _context.SaveChanges();
 
-        return veiculo;
-      }
+        try {
+            using (var _context = new ConcessionariaContexto())
+            {
+                _context.Veiculos.Add(veiculo);
+                _context.SaveChanges();
+
+                return Ok(veiculo);
+            }
+        } catch (Microsoft.EntityFrameworkCore.DbUpdateException e) {
+            return Problem(e.Message, null, 400, "Erro");
+        } catch (Exception e) {
+            return Problem(e.Message, null, 500, "Erro");
+        }
+
     }
 
     [HttpGet]
@@ -31,72 +39,115 @@ namespace ProjetoFinalVolvo.Controllers
     [HttpGet("{id}")]
     public IActionResult Get(int id)
     {
-      using (var _context = new ConcessionariaContexto())
-      {
-        var veiculo = _context.Veiculos.FirstOrDefault(s => s.veiculoId == id);
-        if (veiculo == null)
+        using (var _context = new ConcessionariaContexto())
         {
-          return NotFound();
+            try {
+                var veiculo = _context.Veiculos.FirstOrDefault(s => s.veiculoId == id);
+                if (veiculo == null)
+                {
+                    throw new ConcessionariaException("Veiculo nao existe!");
+                }
+                return Ok(veiculo);
+            } 
+            catch (ConcessionariaException e)
+            {
+                return Problem(e.Message, null, 400, "Erro");
+            }
+            catch (Exception e)
+            {
+                return Problem(e.Message, null, 500, "Erro");
+            }
         }
-        return Ok(veiculo);
-      }
     }
 
     [HttpPut("{id}")]
-    public void Put(int id, [FromBody] Veiculo veiculo)
+    public IActionResult Put(int id, [FromBody] Veiculo veiculo)
     {
-      using (var _context = new ConcessionariaContexto())
-      {
-        var entity = _context.Veiculos.Find(id);
-        if (entity == null)
+        using (var _context = new ConcessionariaContexto())
         {
-          return;
+            try {
+                var entity = _context.Veiculos.Find(id);
+                if (entity == null)
+                {
+                    throw new NullReferenceException("Veiculo nao encontrado");
+                }
+                _context.Entry(entity).CurrentValues.SetValues(veiculo);
+                _context.SaveChanges();
+                return Ok();
+            }
+            catch (NullReferenceException e)
+            {
+                return Problem(e.Message, null, 404, "Erro");
+            }
+            catch (Exception e)
+            {
+                return Problem(e.Message, null, 500, "Erro");
+            }
         }
-        _context.Entry(entity).CurrentValues.SetValues(veiculo);
-        _context.SaveChanges();
-      }
     }
 
     [HttpDelete("{id}")]
-    public void Delete(int id)
+    public IActionResult Delete(int id)
     {
-      using (var _context = new ConcessionariaContexto())
-      {
-        var entity = _context.Veiculos.Find(id);
-        if (entity == null)
+        using (var _context = new ConcessionariaContexto())
         {
-          return;
+            try {
+                var entity = _context.Veiculos.Find(id);
+                if (entity == null)
+                {
+                    throw new NullReferenceException("Veiculo nao encontrado");
+                }
+                _context.Veiculos.Remove(entity);
+                _context.SaveChanges();
+                return Ok();
+            }
+            catch (NullReferenceException e)
+            {
+                return Problem(e.Message, null, 404, "Erro");
+                
+            }
+            catch (Exception e)
+            {
+                return Problem(e.Message, null, 500, "Erro");
+            }
         }
-        _context.Veiculos.Remove(entity);
-        _context.SaveChanges();
-      }
     }
 
     // Listar veiculos por quilometragem
     [HttpGet("quilometragem")]
-    public List<Veiculo> ListarQuilometragem()
+    public IActionResult ListarQuilometragem()
     {
-      using (var _context = new ConcessionariaContexto())
-      {
-        // List<Veiculo> veiculos = blabla;
-        var veiculos = _context.Veiculos
-          .OrderBy(x => x.quilometragem)
-          .ToList();
-        return veiculos;
-      }
+        try {
+            using (var _context = new ConcessionariaContexto())
+            {
+                // List<Veiculo> veiculos = blabla;
+                var veiculos = _context.Veiculos
+                .OrderBy(x => x.quilometragem)
+                .ToList();
+                return Ok(veiculos);
+            }
+        }
+        catch (Exception e) 
+        {
+            return Problem(e.Message, null, 500, "Erro");
+        }
     }
 
     // Listar veiculos pela versao
     [HttpGet("versao")]
-    public List<Veiculo> ListarVersao()
+    public IActionResult ListarVersao()
     {
-      using (var _context = new ConcessionariaContexto())
-      {
-        var veiculos = _context.Veiculos
-          .OrderBy(x => x.versaoSistema)
-          .ToList();
-        return veiculos;
-      }
+        try {
+            using (var _context = new ConcessionariaContexto())
+            {
+                var veiculos = _context.Veiculos
+                .OrderBy(x => x.versaoSistema)
+                .ToList();
+                return Ok(veiculos);
+            }
+        } catch (Exception e) {
+            return Problem(e.Message, null, 500, "Erro");
+        }
     }
 
   }

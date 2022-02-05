@@ -29,7 +29,7 @@ namespace ProjetoFinalVolvo.Controllers
         }
         catch (Exception e)
         {
-          return Problem(e.Message, null, 400, "Erro");
+          return Problem(e.Message, null, 500, "Erro");
         }
       }
     }
