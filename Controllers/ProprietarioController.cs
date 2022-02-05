@@ -26,11 +26,11 @@ namespace ProjetoFinalVolvo.Controllers
         }
         catch (ConcessionariaException e)
         {
-          return BadRequest(e.Message);
+          return Problem(e.Message, null, 500, "Erro");
         }
         catch (Exception e)
         {
-          return BadRequest(e.StackTrace);
+          return Problem(e.Message, null, 500, "Erro");
         }
       }
     }
@@ -55,17 +55,17 @@ namespace ProjetoFinalVolvo.Controllers
 
           if (proprietario == null)
           {
-            throw new NullReferenceException("Proprietario  não existe");
+            throw new NullReferenceException("Proprietario nao existe");
           }
           return Ok(proprietario);
         }
         catch (NullReferenceException e)
         {
-          return NotFound(e.Message);
+          return Problem(e.Message, null, 404, "Erro");
         }
         catch (Exception e)
         {
-          return BadRequest(e.StackTrace);
+          return Problem(e.Message, null, 500, "Erro");
         }
       }
 
@@ -81,19 +81,19 @@ namespace ProjetoFinalVolvo.Controllers
           var entity = _context.Proprietarios.Find(id);
           if (entity == null)
           {
-            throw new NullReferenceException("Proprietario não encontrado");
+            throw new NullReferenceException("Proprietario nao encontrado");
           }
           _context.Entry(entity).CurrentValues.SetValues(proprietario);
           _context.SaveChanges();
-          return Ok("Proprietario editado");
+          return Ok();
         }
         catch (NullReferenceException e)
         {
-          return NotFound(e.Message);
+          return Problem(e.Message, null, 404, "Erro");
         }
         catch (Exception e)
         {
-          return BadRequest(e.Message);
+          return Problem(e.Message, null, 500, "Erro");
         }
       }
     }
@@ -108,19 +108,20 @@ namespace ProjetoFinalVolvo.Controllers
           var entity = _context.Proprietarios.Find(id);
           if (entity == null)
           {
-            throw new NullReferenceException("Proprietario não encontrado");
+            throw new NullReferenceException("Proprietario nao encontrado");
           }
           _context.Proprietarios.Remove(entity);
           _context.SaveChanges();
-          return Ok("Proprietario deletado");
+          return Ok();
         }
         catch (NullReferenceException e)
         {
-          return NotFound(e.Message);
+          return Problem(e.Message, null, 404, "Erro");
+          
         }
         catch (Exception e)
         {
-          return BadRequest(e.Message);
+          return Problem(e.Message, null, 500, "Erro");
         }
       }
     }
