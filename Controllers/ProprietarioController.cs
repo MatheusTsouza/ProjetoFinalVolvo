@@ -28,7 +28,7 @@ namespace ProjetoFinalVolvo.Controllers
 
           if (proprietario.cpfCnpj.Length != 14 && proprietario.cpfCnpj.Length != 11)
           {
-            throw new ConcessionariaException("Cpf deve ter 11 numeros e o Cnpj 14 numeros");
+            throw new ConcessionariaException("CPF deve ter 11 numeros e o CNPJ 14 numeros");
           }
           _context.Proprietarios.Add(proprietario);
           _context.SaveChanges();

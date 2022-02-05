@@ -15,7 +15,7 @@ namespace ProjetoFinalVolvo {
                 return true;
             }
             catch (Exception e) {
-                Console.WriteLine("Erro ao adicionar log" + arquivoLog);
+                Console.WriteLine("Erro ao adicionar log " + arquivoLog);
                 Console.WriteLine(e.Message);
                 return false;
             }
