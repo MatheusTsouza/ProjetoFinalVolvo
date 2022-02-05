@@ -8,14 +8,30 @@ namespace ProjetoFinalVolvo.Controllers
   public class ProprietarioController : Controller
   {
     [HttpPost]
-    public Proprietario? Post([FromBody] Proprietario proprietario)
+    public IActionResult Post([FromBody] Proprietario proprietario)
     {
       using (var _context = new ConcessionariaContexto())
       {
-        _context.Proprietarios.Add(proprietario);
-        _context.SaveChanges();
+        try
+        {
 
-        return proprietario;
+          if (proprietario.cpfCnpj.Length != 14 && proprietario.cpfCnpj.Length != 11)
+          {
+            throw new ConcessionariaException("Cpf deve ter 11 numeros e o Cnpj 14 numeros");
+          }
+          _context.Proprietarios.Add(proprietario);
+          _context.SaveChanges();
+
+          return Ok(proprietario);
+        }
+        catch (ConcessionariaException e)
+        {
+          return BadRequest(e.Message);
+        }
+        catch (Exception e)
+        {
+          return BadRequest(e.StackTrace);
+        }
       }
     }
 
@@ -33,43 +49,79 @@ namespace ProjetoFinalVolvo.Controllers
     {
       using (var _context = new ConcessionariaContexto())
       {
-        var proprietario = _context.Proprietarios.FirstOrDefault(s => s.proprietarioId == id);
-
-        if (proprietario == null)
+        try
         {
-          return NotFound();
+          var proprietario = _context.Proprietarios.FirstOrDefault(s => s.proprietarioId == id);
+
+          if (proprietario == null)
+          {
+            throw new NullReferenceException("Proprietario  não existe");
+          }
+          return Ok(proprietario);
         }
-        return Ok(proprietario);
+        catch (NullReferenceException e)
+        {
+          return NotFound(e.Message);
+        }
+        catch (Exception e)
+        {
+          return BadRequest(e.StackTrace);
+        }
       }
+
     }
 
     [HttpPut("{id}")]
-    public void Put(int id, [FromBody] Proprietario proprietario)
+    public IActionResult Put(int id, [FromBody] Proprietario proprietario)
     {
       using (var _context = new ConcessionariaContexto())
       {
-        var entity = _context.Proprietarios.Find(id);
-        if (entity == null)
+        try
         {
-          return;
+          var entity = _context.Proprietarios.Find(id);
+          if (entity == null)
+          {
+            throw new NullReferenceException("Proprietario não encontrado");
+          }
+          _context.Entry(entity).CurrentValues.SetValues(proprietario);
+          _context.SaveChanges();
+          return Ok("Proprietario editado");
         }
-        _context.Entry(entity).CurrentValues.SetValues(proprietario);
-        _context.SaveChanges();
+        catch (NullReferenceException e)
+        {
+          return NotFound(e.Message);
+        }
+        catch (Exception e)
+        {
+          return BadRequest(e.Message);
+        }
       }
     }
 
     [HttpDelete("{id}")]
-    public void Delete(int id)
+    public IActionResult Delete(int id)
     {
       using (var _context = new ConcessionariaContexto())
       {
-        var entity = _context.Proprietarios.Find(id);
-        if (entity == null)
+        try
         {
-          return;
+          var entity = _context.Proprietarios.Find(id);
+          if (entity == null)
+          {
+            throw new NullReferenceException("Proprietario não encontrado");
+          }
+          _context.Proprietarios.Remove(entity);
+          _context.SaveChanges();
+          return Ok("Proprietario deletado");
         }
-        _context.Proprietarios.Remove(entity);
-        _context.SaveChanges();
+        catch (NullReferenceException e)
+        {
+          return NotFound(e.Message);
+        }
+        catch (Exception e)
+        {
+          return BadRequest(e.Message);
+        }
       }
     }
   }

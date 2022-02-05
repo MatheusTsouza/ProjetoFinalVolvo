@@ -14,7 +14,6 @@ namespace ProjetoFinalVolvo
     public string endereco { get; set; }
     [MaxLength(256)]
     public string email { get; set; }
-
     public Veiculo? veiculo;
   }
 }
