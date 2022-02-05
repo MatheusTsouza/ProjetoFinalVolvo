@@ -11,7 +11,11 @@ namespace ProjetoFinalVolvo
     [MinLength(11)]
     [MaxLength(14)]
     public string cpfCnpj { get; set; }
-    public string endereco { get; set; }
+    [StringLength(60)]
+    public string enderecoCidade { get; set; }
+    [StringLength(100)]
+    public string enderecoRua { get; set; }
+    public int enderecoNumero { get; set; }
     [MaxLength(256)]
     public string email { get; set; }
     public Veiculo? veiculo;
