@@ -53,7 +53,7 @@ namespace ProjetoFinalVolvo
       string localPython = configuracao.linhaConfiguracao("config/App.config", 2);
 
 
-      Process.Start(localPython, @"python/server.py");
+      Process.Start("python", @"python/server.py");
 
     }
 
