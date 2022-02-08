@@ -24,6 +24,7 @@ while True:
 
     preco = modelo.predizer(quilometragem, ano, motor, marca)
     preco = str(preco)
+    print(preco)
 
     if not data:
         print('fechando conexao')

@@ -72,6 +72,9 @@ data = {'mileage': [0.0],
         }
 
 def predizer(quilometragem, ano, engV, marca):
+    quilometragem = float(quilometragem)
+    ano = int(ano)
+    engV = float(engV)
     quilometragem = quilometragem/1000 # Converte para k
     idade = datetime.date.today().year - ano # Calcula a idade do carro
 
@@ -83,5 +86,4 @@ def predizer(quilometragem, ano, engV, marca):
     predicao = model.predict(input)
     return predicao[0]
 
-
-model = joblib.load("modelo_preco_carro.joblib")
+model = joblib.load("python/modelo_preco_carro.joblib")
