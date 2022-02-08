@@ -14,20 +14,19 @@ print("conectado",ender)
 while True:
     data = conn.recv(1024)
 
-    a = data.decode()
-    b = a.split(";")
+    decoded_data = data.decode()
+    values = decoded_data.split(";")
 
-    quilometragem = b[0]
-    ano = b[1]
-    valor = b[2]
+    quilometragem = values[0]
+    ano = values[1]
+    motor = values[2]
+    marca = values[3]
 
-
-
-    preco = modelo.predizer(quilometragem,ano,valor,"Volkswagen")
+    preco = modelo.predizer(quilometragem, ano, motor, marca)
     preco = str(preco)
 
     if not data:
-        print('fechando conexão')
+        print('fechando conexao')
         conn.close()
         break
     conn.sendall(str.encode(preco))

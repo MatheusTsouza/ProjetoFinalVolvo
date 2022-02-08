@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjetoFinalVolvo;
 
@@ -10,9 +11,10 @@ using ProjetoFinalVolvo;
 namespace ProjetoFinalVolvo.Migrations
 {
     [DbContext(typeof(ConcessionariaContexto))]
-    partial class ConcessionariaContextoModelSnapshot : ModelSnapshot
+    [Migration("20220208075032_mudarMotor")]
+    partial class mudarMotor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
