@@ -17,7 +17,7 @@ namespace ProjetoFinalVolvo
     public string acessorios { get; set; }
     [MaxLength(45)]
     public string versaoSistema { get; set; }
-    public int motor { get; set; }
+    public float motor { get; set; }
     [MaxLength(45)]
     public string marca { get; set; }
     public int proprietarioId { get; set; }

@@ -1,6 +1,6 @@
 import pandas as pd
-
 import joblib
+import datetime
 
 #colunas = x_train.columns.to_list()
 data = {'mileage': [0.0],
@@ -71,7 +71,10 @@ data = {'mileage': [0.0],
         'car_ËUAZ': [0.0]
         }
 
-def predizer(quilometragem, idade, engV, marca):
+def predizer(quilometragem, ano, engV, marca):
+    quilometragem = quilometragem/1000 # Converte para k
+    idade = datetime.date.today().year - ano # Calcula a idade do carro
+
     data['mileage'] = quilometragem
     data['age'] = idade
     data['engV'] = engV
