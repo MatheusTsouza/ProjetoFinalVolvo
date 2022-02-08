@@ -196,7 +196,7 @@ namespace ProjetoFinalVolvo.Controllers
           string dadosConcat = string.Concat(quilometragem, ";", ano, ";", motor, ";", marca);
 
           pythonToDotnet servidor = new pythonToDotnet();
-          servidor.selecionaServidor(50000, "127.0.0.1");
+          servidor.conectaServidor(50000, "127.0.0.1");
           string dados = servidor.enviaDados(dadosConcat);
 
           return Ok(dados);

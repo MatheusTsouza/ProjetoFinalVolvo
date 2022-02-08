@@ -3,6 +3,8 @@ using System.IO;
 using System.Text;
 using System.Net.Sockets;
 using System.Diagnostics;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ProjetoFinalVolvo
 {
@@ -12,15 +14,23 @@ namespace ProjetoFinalVolvo
     public int Porta = 0;
     public string server = "";
 
-    public void selecionaServidor(int porta, string server)
+    public void conectaServidor(int porta, string server)
     {
       this.Porta = porta;
       this.server = server;
-      iniciaServidor();
+
+      config configuracao = new config();
+      string localPython = configuracao.linhaConfiguracao("config/App.config", 2);
+
+      Process.Start("python", @"python/server.py");
+
+      Task.Delay(1000);
+
     }
 
     public string enviaDados(string dadosFornecidos)
     {
+
       byte[] dadosFonecidosByte;
 
       TcpClient cliente = new TcpClient(this.server, this.Porta);
@@ -47,15 +57,6 @@ namespace ProjetoFinalVolvo
 
     }
 
-    private void iniciaServidor()
-    {
-      config configuracao = new config();
-      string localPython = configuracao.linhaConfiguracao("config/App.config", 2);
-
-
-      Process.Start("python", @"python/server.py");
-
-    }
 
   }
 
