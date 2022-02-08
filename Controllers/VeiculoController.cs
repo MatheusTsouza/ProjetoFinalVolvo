@@ -189,9 +189,11 @@ namespace ProjetoFinalVolvo.Controllers
           string quilometragem = Convert.ToString(veiculo.quilometragem);
           string ano = Convert.ToString(veiculo.ano);
           string valor = Convert.ToString(veiculo.valor);
+          string marca = Convert.ToString(veiculo.marca);
+          string motor = Convert.ToString(veiculo.motor);
 
 
-          string dadosConcat = string.Concat(quilometragem, ";", ano, ";", valor);
+          string dadosConcat = string.Concat(quilometragem, ";", ano, ";", motor, ";", marca);
 
           pythonToDotnet servidor = new pythonToDotnet();
           servidor.selecionaServidor(50000, "127.0.0.1");

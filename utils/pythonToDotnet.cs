@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Text;
 using System.Net.Sockets;
+using System.Diagnostics;
 
 namespace ProjetoFinalVolvo
 {
@@ -15,6 +16,7 @@ namespace ProjetoFinalVolvo
     {
       this.Porta = porta;
       this.server = server;
+      iniciaServidor();
     }
 
     public string enviaDados(string dadosFornecidos)
@@ -32,7 +34,7 @@ namespace ProjetoFinalVolvo
       return dados;
     }
 
-    public string recebeDados(TcpClient cliente, NetworkStream nwStream)
+    private string recebeDados(TcpClient cliente, NetworkStream nwStream)
     {
       int leBytes;
       string dadosRecebidos;
@@ -42,6 +44,16 @@ namespace ProjetoFinalVolvo
       dadosRecebidos = Encoding.ASCII.GetString(bytesRecebidos, 0, leBytes);
 
       return dadosRecebidos;
+
+    }
+
+    private void iniciaServidor()
+    {
+      config configuracao = new config();
+      string localPython = configuracao.linhaConfiguracao("config/App.config", 2);
+
+
+      Process.Start(localPython, @"python/server.py");
 
     }
 

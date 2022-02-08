@@ -69,7 +69,6 @@ E:\workspace_volvo\ProjetoFinalVolvo\obj\Debug\net6.0\ProjetoFinalVolvo.pdb
 E:\workspace_volvo\ProjetoFinalVolvo\obj\Debug\net6.0\ProjetoFinalVolvo.genruntimeconfig.cache
 E:\workspace_volvo\ProjetoFinalVolvo\bin\Debug\net6.0\Models\App.config
 E:\workspace_volvo\ProjetoFinalVolvo\bin\Debug\net6.0\ProjetoFinalVolvo.dll.config
-E:\workspace_volvo\projeto\ProjetoFinalVolvo\bin\Debug\net6.0\Models\App.config
 E:\workspace_volvo\projeto\ProjetoFinalVolvo\bin\Debug\net6.0\appsettings.Development.json
 E:\workspace_volvo\projeto\ProjetoFinalVolvo\bin\Debug\net6.0\appsettings.json
 E:\workspace_volvo\projeto\ProjetoFinalVolvo\bin\Debug\net6.0\ProjetoFinalVolvo.exe
@@ -133,3 +132,4 @@ E:\workspace_volvo\projeto\ProjetoFinalVolvo\obj\Debug\net6.0\ProjetoFinalVolvo.
 E:\workspace_volvo\projeto\ProjetoFinalVolvo\obj\Debug\net6.0\ref\ProjetoFinalVolvo.dll
 E:\workspace_volvo\projeto\ProjetoFinalVolvo\obj\Debug\net6.0\ProjetoFinalVolvo.pdb
 E:\workspace_volvo\projeto\ProjetoFinalVolvo\obj\Debug\net6.0\ProjetoFinalVolvo.genruntimeconfig.cache
+E:\workspace_volvo\projeto\ProjetoFinalVolvo\bin\Debug\net6.0\config\App.config
