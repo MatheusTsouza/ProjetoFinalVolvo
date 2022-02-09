@@ -20,6 +20,10 @@ namespace ProjetoFinalVolvo.Controllers
           {
             throw new ConcessionariaException("Chassi deve ter 17 caracteres");
           }
+          if (veiculo.ano > 2022)
+          {
+            throw new ConcessionariaException("Ano do veiculo deve ser menor que 2022");
+          }
           _context.Veiculos.Add(veiculo);
           _context.SaveChanges();
 
