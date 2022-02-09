@@ -13,8 +13,13 @@ namespace ProjetoFinalVolvo.Controllers
 
       try
       {
+
         using (var _context = new ConcessionariaContexto())
         {
+          if (veiculo.numeroChassi.Length != 17)
+          {
+            throw new ConcessionariaException("Chassi deve ter 17 caracteres");
+          }
           _context.Veiculos.Add(veiculo);
           _context.SaveChanges();
 
@@ -22,6 +27,11 @@ namespace ProjetoFinalVolvo.Controllers
         }
       }
       catch (Microsoft.EntityFrameworkCore.DbUpdateException e)
+      {
+        Utils.addLog(e.Message);
+        return Problem(e.Message, null, 400, "Erro");
+      }
+      catch (ConcessionariaException e)
       {
         Utils.addLog(e.Message);
         return Problem(e.Message, null, 400, "Erro");
@@ -77,6 +87,10 @@ namespace ProjetoFinalVolvo.Controllers
       {
         try
         {
+          if (veiculo.numeroChassi.Length != 17)
+          {
+            throw new ConcessionariaException("Chassi deve ter 17 caracteres");
+          }
           var entity = _context.Veiculos.Find(id);
           if (entity == null)
           {
@@ -90,6 +104,11 @@ namespace ProjetoFinalVolvo.Controllers
         {
           Utils.addLog(e.Message);
           return Problem(e.Message, null, 404, "Erro");
+        }
+        catch (ConcessionariaException e)
+        {
+          Utils.addLog(e.Message);
+          return Problem(e.Message, null, 400, "Erro");
         }
         catch (Exception e)
         {
