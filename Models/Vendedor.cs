@@ -9,5 +9,16 @@ namespace ProjetoFinalVolvo
     public string nome { get; set; }
     public float salario { get; set; }
     public Veiculo? veiculo;
+
+
+    public Vendedor()
+    {
+      this.vendedorId = 0;
+      this.nome = "";
+      this.salario = 0.0f;
+
+    }
+
   }
+
 }

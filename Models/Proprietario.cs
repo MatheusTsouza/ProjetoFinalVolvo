@@ -19,5 +19,17 @@ namespace ProjetoFinalVolvo
     [MaxLength(256)]
     public string email { get; set; }
     public Veiculo? veiculo;
+
+    public Proprietario()
+    {
+      this.proprietarioId = 0;
+      this.nome = "";
+      this.cpfCnpj = "";
+      this.enderecoCidade = "";
+      this.enderecoRua = "";
+      this.enderecoNumero = 0;
+      this.email = "";
+
+    }
   }
 }

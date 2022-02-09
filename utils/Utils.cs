@@ -33,30 +33,37 @@ namespace ProjetoFinalVolvo
     }
 
 
-    public static string[] lerLog(int maxLinhas)
+    public List<string> lerLog(int maxLinhas)
     {
 
-      string arquivoLog = @"loggers/logErros.log";
-      string[] logs = { };
       try
       {
-        StreamReader stream = new StreamReader(arquivoLog);
 
-        string linha;
-        int i = 0;
-        while ((linha = stream.ReadLine()) != null)
+        string[] logs = File.ReadAllLines(@"ets.txt");
+        int contador = 1;
+        List<string> ultimosLogs = new List<string>();
+
+
+        foreach (var log in logs)
         {
-          logs[i] = linha;
-          i++;
+          if (contador <= maxLinhas)
+          {
+            ultimosLogs.Add(log);
+          }
+          contador++;
         }
+
+        return ultimosLogs;
 
       }
       catch (Exception e)
       {
-        Console.WriteLine("Erro ao ler log" + arquivoLog);
+        List<string> erro = new List<string>();
+        Console.WriteLine("Erro ao ler o arquivo log");
         Console.WriteLine(e);
+        erro.Append(e.Message);
+        return erro;
       }
-      return logs;
     }
 
 

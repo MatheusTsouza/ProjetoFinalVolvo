@@ -27,5 +27,22 @@ namespace ProjetoFinalVolvo
     public Vendedor? Vendedor { get; set; }
 
 
+    public Veiculo()
+    {
+      this.veiculoId = 0;
+      this.numeroChassi = "";
+      this.modelo = "";
+      this.ano = 0;
+      this.cor = "";
+      this.valor = 0.0f;
+      this.quilometragem = 0;
+      this.acessorios = "";
+      this.versaoSistema = "";
+      this.motor = 0.0f;
+      this.marca = "";
+      this.proprietarioId = 0;
+      this.vendedorId = 0;
+    }
+
   }
 }
