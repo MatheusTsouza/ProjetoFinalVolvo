@@ -20,10 +20,10 @@ namespace ProjetoFinalVolvo
     public float motor { get; set; }
     [MaxLength(45)]
     public string marca { get; set; }
-    public int proprietarioId { get; set; }
+    public int? proprietarioId { get; set; }
     public Proprietario? Proprietario { get; set; }
 
-    public int vendedorId { get; set; }
+    public int? vendedorId { get; set; }
     public Vendedor? Vendedor { get; set; }
 
 
