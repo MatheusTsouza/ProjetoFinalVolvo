@@ -93,9 +93,13 @@ namespace ProjetoFinalVolvo.Controllers
       {
         try
         {
-          if (new EmailAddressAttribute().IsValid(proprietario.email) == false)
+
+
+
+
+          if (proprietario.cpfCnpj.Length != 14 && proprietario.cpfCnpj.Length != 11)
           {
-            throw new ConcessionariaException("Email com o formato inválido");
+            throw new ConcessionariaException("CPF deve ter 11 numeros e o CNPJ 14 numeros");
           }
 
           if (proprietario.enderecoNumero > 9999)
@@ -103,9 +107,9 @@ namespace ProjetoFinalVolvo.Controllers
             throw new ConcessionariaException("Numero da casa não pode ser superior a 9999");
           }
 
-          if (proprietario.cpfCnpj.Length != 14 && proprietario.cpfCnpj.Length != 11)
+          if (new EmailAddressAttribute().IsValid(proprietario.email) == false)
           {
-            throw new ConcessionariaException("CPF deve ter 11 numeros e o CNPJ 14 numeros");
+            throw new ConcessionariaException("Email com o formato inválido");
           }
 
           var entity = _context.Proprietarios.Find(id);
