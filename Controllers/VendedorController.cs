@@ -79,6 +79,10 @@ namespace ProjetoFinalVolvo.Controllers
       {
         try
         {
+          if (vendedor.salario < 1212.00)
+          {
+            throw new ConcessionariaException("O salário deve ser igual ou maior que o salario mínimo");
+          }
           var entity = _context.Vendedores.Find(id);
           if (entity == null)
           {
@@ -92,6 +96,11 @@ namespace ProjetoFinalVolvo.Controllers
         {
           Utils.addLog(e.Message);
           return Problem(e.Message, null, 404, "Erro");
+        }
+        catch (ConcessionariaException e)
+        {
+          Utils.addLog(e.Message);
+          return Problem(e.Message, null, 400, "Erro");
         }
         catch (Exception e)
         {
