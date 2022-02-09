@@ -1,0 +1,15 @@
+09/02/2022 00:52:17: Email com o formato inválido
+09/02/2022 00:59:17: Chassi deve ter 17 caracteres
+09/02/2022 00:59:24: An error occurred while saving the entity changes. See the inner exception for details.
+09/02/2022 01:00:25: An error occurred while saving the entity changes. See the inner exception for details.
+09/02/2022 01:03:50: The property 'Veiculo.veiculoId' is part of a key and so cannot be modified or marked as modified. To change the principal of an existing entity with an identifying foreign key, first delete the dependent and invoke 'SaveChanges', and then associate the dependent with the new principal.
+09/02/2022 01:07:42: O salário deve ser igual ou maior que o salario mínimo
+09/02/2022 01:07:48: O salário deve ser igual ou maior que o salario mínimo
+09/02/2022 01:12:48: O salário deve ser igual ou maior que o salario mínimo
+09/02/2022 01:12:57: O salário deve ser igual ou maior que o salario mínimo
+09/02/2022 01:31:03: CPF deve ter 11 numeros e o CNPJ 14 numeros
+09/02/2022 01:32:03: Chassi deve ter 17 caracteres
+09/02/2022 01:32:04: Chassi deve ter 17 caracteres
+09/02/2022 01:32:04: Chassi deve ter 17 caracteres
+09/02/2022 01:34:19: CPF deve ter 11 numeros e o CNPJ 14 numeros
+09/02/2022 01:34:19: Chassi deve ter 17 caracteres
