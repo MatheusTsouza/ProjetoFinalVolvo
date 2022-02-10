@@ -25,3 +25,5 @@
 09/02/2022 21:03:09: Email com o formato inválido
 09/02/2022 21:04:01: Email com o formato inválido
 09/02/2022 21:04:17: Numero da casa não pode ser superior a 9999
+10/02/2022 00:16:03: CPF deve ter 11 numeros e o CNPJ 14 numeros
+10/02/2022 00:18:24: Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente. 127.0.0.1:50000
