@@ -20,7 +20,7 @@ namespace ProjetoFinalVolvo
         }
 
         System.DateTime horario = System.DateTime.UtcNow;
-        mensagem = horario.ToString() + ": " + mensagem + "\n";
+        mensagem = "UTC " + horario.ToString() + ": " + mensagem + "\n";
         File.AppendAllText(arquivoLog, mensagem);
         return true;
       }
